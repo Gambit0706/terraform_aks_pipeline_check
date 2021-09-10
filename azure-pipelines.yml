@@ -62,7 +62,6 @@ stages:
   - stage: DeployAKSClusters
     jobs:
       - deployment: DeployDevAKSCluster
-        dependsOn: DeployDevAKSCluster
         displayName: DeployDevAKSCluster
         pool:
           vmImage: "ubuntu-latest"
@@ -117,6 +116,7 @@ stages:
   - stage: DeployAKSClustersOther
     jobs:
       - deployment: DeployQAAKSCluster
+        dependsOn: DeployDevAKSCluster
         displayName: DeployQAAKSCluster
         pool:
           vmImage: "ubuntu-latest"
